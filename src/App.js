@@ -1,4 +1,5 @@
 import React from 'react'
+import AuditionsContainer from './containers/AuditionsContainer'
 
 class App extends React.Component {
 
@@ -12,7 +13,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-      
+        <AuditionsContainer />
       </div>
     );
   }

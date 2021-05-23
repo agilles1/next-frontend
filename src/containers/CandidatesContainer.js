@@ -17,15 +17,21 @@ state = {
     }
     
        render(){
+           
+        let candidates = []
+
+        if(this.props.candidates){
+            candidates = this.props.candidates.map(candidate => (
+                <Candidate key={candidate.id} candidate={candidate}/>
+            ))
+        }
     
-        // let candidates = this.props.candidates.map((candidate) => (
-        //     <Candidate candidate={candidate}/>))
 
         return (
           <div>
               <button onClick={this.handleClick }>Add New Candidate</button>
               {this.state.show? this.showForm() : null}
-              {/* {candidates} */}
+              {candidates}
           </div> 
         )
     }
@@ -34,7 +40,7 @@ state = {
 const mapStateToProps = (state) => {
     
     return {
-        candidates: state.candidates
+        candidates: state.audition.candidates
     }
 };
 

@@ -4,7 +4,7 @@ import candidateReducer from './reducers/candidateReducer';
 import auditionReducer from './reducers/auditionReducer'
 
 const rootReducer = combineReducers({
-    candidate: candidateReducer,
+    candidates: candidateReducer,
     audition: auditionReducer
 })
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

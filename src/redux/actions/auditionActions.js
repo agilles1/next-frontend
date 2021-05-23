@@ -3,7 +3,6 @@ export const getAudition = (auditionId) => {
         fetch(`http://localhost:3000/api/v1/auditions/${auditionId}`)
         .then(res => res.json())
         .then(data =>  dispatch({ type: "GET_AUDITION_SUCCESS", payload: data}))
-        .then(data => console.log(data.payload))
     }
 }
 

@@ -2,7 +2,7 @@
 
 export const createNewCandidate = (newCandidateData) => {
     return (dispatch) => {
-        fetch(`http://localhost:3001/api/v1/auditions/${newCandidateData.audition_id}/candidates`, {
+        fetch(`http://localhost:3000/api/v1/auditions/${newCandidateData.audition_id}/candidates`, {
             method: "POST",
             headers: {
                 Accepts: "application/json",
@@ -23,6 +23,9 @@ export const createNewCandidate = (newCandidateData) => {
     }
 }
 
-// export const updateCandidateRoom = () = {
+export const getCandidates = (auditionId) => {
+  debugger
+  return (dispatch) => {
 
-// }
+  }
+}

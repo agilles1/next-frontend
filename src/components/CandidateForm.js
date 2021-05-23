@@ -1,12 +1,18 @@
 import React from 'react' 
 import { connect } from 'react-redux'
-import { createNewCandidate } from "../redux/actions/candidateActions.js"
+import { createNewCandidate } from "../redux/actions/auditionActions.js"
 
 class CandidateForm extends React.Component {
     state ={
         name: "",
         email: "", 
         phone: "",
+        audition_id: this.props.audition
+    }
+
+    handleSubmit = (e) => {
+        e.preventDefault()
+        this.props.createNewCandidate(this.state)
     }
 
     handleChange = (e) => {
@@ -32,5 +38,9 @@ class CandidateForm extends React.Component {
     }
 }
 
-
-export default connect(null, { createNewCandidate})(CandidateForm)
+const mapStateToProps = state => {
+    return {
+        audition: state.audition.id
+    }
+}
+export default connect(mapStateToProps, { createNewCandidate})(CandidateForm)

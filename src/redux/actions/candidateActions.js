@@ -1,6 +1,6 @@
 
 
-export const createCandidate = (newCandidateData) => {
+export const createNewCandidate = (newCandidateData) => {
     return (dispatch) => {
         fetch(`http://localhost:3001/api/v1/auditions/${newCandidateData.audition_id}/candidates`, {
             method: "POST",
@@ -23,6 +23,6 @@ export const createCandidate = (newCandidateData) => {
     }
 }
 
-export const updateCandidateRoom = () = {
+// export const updateCandidateRoom = () = {
 
-}
+// }

@@ -1,6 +1,7 @@
 import React from 'react' 
 import { connect } from 'react-redux'
 import { createNewCandidate } from "../redux/actions/auditionActions.js"
+import { Button } from "react-bootstrap"
 
 class CandidateForm extends React.Component {
     state ={
@@ -13,6 +14,7 @@ class CandidateForm extends React.Component {
     handleSubmit = (e) => {
         e.preventDefault()
         this.props.createNewCandidate(this.state)
+        // this.props.hideForm()
     }
 
     handleChange = (e) => {
@@ -31,7 +33,8 @@ class CandidateForm extends React.Component {
                     <br/>
                     <input type="text" name="phone" placeholder="Phone" onChange={this.handleChange}/>
                     <br/>
-                    <button type="submit">Add</button>
+                    <br/>
+                    <Button variant="success" size="sm" type="submit">Add</Button>
                 </form>
             </div>
         )

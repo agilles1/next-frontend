@@ -1,13 +1,13 @@
 import React from "react";
 import { createAudition } from "../redux/actions/auditionActions";
 import { connect } from "react-redux";
+import { Button } from 'react-bootstrap'
 
 class AuditionForm extends React.Component {
     state = {
         date: "",
         time: "",
         instrument: "", 
-        holding: false,
         rooms: ""
     }
 
@@ -22,13 +22,6 @@ class AuditionForm extends React.Component {
         )
     }
 
-    handleCheck= (e) => {
-        this.setState(
-           {[e.target.name]: e.target.checked}
-        )
-    }
-
-
     render() {
         return (
             
@@ -39,19 +32,18 @@ class AuditionForm extends React.Component {
                     <input type="date" name="date" onChange={this.handleChange}/>
                     <label>Start Time</label>
                     <input type="time" name="time" onChange={this.handleChange}/>
-                    <br/>
+                   
+                    <hr/>
                     <label>Instrument</label>
                     <br/>
                     <input type="text" name="instrument" value={this.state.instrument} onChange={this.handleChange}/>
-                    <hr/>
-                    <label>Holding Room?</label>
-                    <input type="checkbox" name="holding" value={this.state.stage} onChange={this.handleCheck}/>
                     <hr/>
                     <label>Individual Warm-Up Rooms (listed in fill order)</label>
                     <br/>
                     <input type="text" name="rooms" value={this.state.rooms} onChange={this.handleChange}/>
                     <hr/>
-                    <button type="submit">Start</button>
+                    <Button variant="success" type="submit">Start</Button>
+                    
                 </form>
             </div>
         )

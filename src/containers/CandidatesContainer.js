@@ -3,36 +3,48 @@ import { connect } from 'react-redux'
 import CandidateForm from '../components/CandidateForm.js'
 import Candidate from '../components/Candidate.js'
 import { getCandidates } from '../redux/actions/candidateActions.js'
+import { Button, OverlayTrigger, Popover } from "react-bootstrap"
+
 
 class CandidatesContainer extends React.Component {
     state = {
         show: false
     }
 
-    handleClick= () => {
-        this.setState({show: !this.state.show})
-    }
+    // toggleForm= () => {
+    //     this.setState({show: !this.state.show})
+    // }
 
     showForm = () => {
-       return <CandidateForm />
+       return <CandidateForm hideForm={this.toggleForm} />
     }
     
-       render(){
+    render(){
        
         let candidates = []
 
         if(this.props.candidates){
             candidates = this.props.candidates.map(candidate => (
-                <Candidate key={candidate.id} candidate={candidate}/>
+                    <Candidate key={candidate.id} candidate={candidate}/>   
             ))
         }
+
+        const popover = (
+            <Popover id="popover-basic">
+              <Popover.Title as="h3">Add New Candidate</Popover.Title>
+              <Popover.Content>
+                <CandidateForm />
+              </Popover.Content>
+            </Popover>)
     
 
         return (
           <div>
-              <button onClick={this.handleClick }>Add New Candidate</button>
-              {this.state.show? this.showForm() : null}
-              {candidates}
+            <OverlayTrigger trigger="click" placement="right" overlay={popover}>
+                <Button variant="success">Add New Candidate</Button>
+            </OverlayTrigger>
+              <hr/>
+                {candidates}
           </div> 
         )
     }

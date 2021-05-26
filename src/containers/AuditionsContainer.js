@@ -1,33 +1,29 @@
 import React from 'react'
-import { Route} from 'react-router'
-import { connect } from "react-redux";
+import { Route, Switch } from 'react-router'
 import AuditionForm from '../components/AuditionForm.js'
 import Audition from '../components/Audition.js'
-import { getAudition } from "../redux/actions/auditionActions"
-import CandidatesContainer from '../containers/CandidatesContainer'
+import Auditions from '../components/Auditions.js'
+
+
 
 class AuditionsContainer extends React.Component {
-
-    componentDidMount(){
-        this.props.getAudition("1")
-    }
 
     render(){
         return (
             <div>
-                 <Route exact path='/auditions/new' component={AuditionForm} />
-                 <Audition audition={this.props.audition}/>
-                 <CandidatesContainer />
+                <Switch>                  
+                    <Route exact path='auditions'>
+                        <Auditions/>
+                    </Route>
+                    <Route exact path='/auditions/new'>
+                        <AuditionForm/>
+                    </Route>
+                    <Route path='/auditions/:id' component={Audition}/>
+                </Switch>
+                
             </div>
         )
     } 
 }
 
-const mapStateToProps = (state) => {
-    
-    return {
-        audition: state.audition
-    }
-};
-
-export default connect(mapStateToProps, { getAudition })(AuditionsContainer)
+export default AuditionsContainer

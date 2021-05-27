@@ -13,8 +13,13 @@ class Room extends React.Component {
     }
 
     render(){
-        let  currentCandidateObj = this.props.room.candidates[0]
-        let currentCandidate = currentCandidateObj? `${currentCandidateObj.number} | ${currentCandidateObj.name}` : "Empty"
+        let  currentCandidateObj = this.props.room.candidates.filter(candidate => candidate.audition_id === this.props.audition.id)[0]
+        let currentCandidate = "Empty"
+
+        if(!!currentCandidateObj && currentCandidateObj.audition_id === this.props.audition.id ){
+            currentCandidate = `${currentCandidateObj.number} | ${currentCandidateObj.name}`
+        }
+
         let icon = <HourglassEmptyIcon className="float-right"/>
 
         if(currentCandidate !== "Empty"){

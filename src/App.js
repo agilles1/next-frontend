@@ -1,14 +1,14 @@
 import React from 'react'
 import AuditionsContainer from './containers/AuditionsContainer'
-import { Route } from 'react-router'
-
+import Navigation from './components/Navigation'
 
 class App extends React.Component {
 
   render() {
     return (
       <div className="App">
-        <Route render={(routerProps) => <AuditionsContainer {...routerProps}/>} />
+        <Navigation/>
+        <AuditionsContainer/>
       </div>
     );
   }

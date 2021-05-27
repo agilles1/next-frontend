@@ -11,14 +11,11 @@ class CandidatesContainer extends React.Component {
         show: false
     }
 
-    // toggleForm= () => {
-    //     this.setState({show: !this.state.show})
-    // }
-
-    showForm = () => {
-       return <CandidateForm hideForm={this.toggleForm} />
+    toggleForm= () => {
+        this.setState({show: !this.state.show})
     }
-    
+
+     
     render(){
        
         let candidates = []
@@ -33,7 +30,7 @@ class CandidatesContainer extends React.Component {
             <Popover id="popover-basic">
               <Popover.Title as="h3">Add New Candidate</Popover.Title>
               <Popover.Content>
-                <CandidateForm />
+                <CandidateForm hideForm={this.toggleForm}/>
               </Popover.Content>
             </Popover>)
     

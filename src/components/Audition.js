@@ -8,7 +8,6 @@ import { getAudition } from "../redux/actions/auditionActions"
 class Audition extends React.Component {
 
     componentDidMount(){
-     
         this.props.getAudition(this.props.match.params.id)
     }
         
@@ -18,7 +17,8 @@ class Audition extends React.Component {
 
         return(
             <div>
-                <h3>{audition.instrument} | {Moment(audition.date).format('M-DD-YY HH:MM')}</h3>
+                <h3>{audition.instrument} | {Moment(audition.date).format('MMMM DD, YYYY | h:mma')}</h3>
+                <hr/>
                 <RoomsContainer/>
                 <hr/>
                 <CandidatesContainer />

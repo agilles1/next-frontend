@@ -1,6 +1,6 @@
 import React from 'react' 
 import { connect } from 'react-redux'
-import { createNewCandidate } from "../redux/actions/auditionActions.js"
+import { createNewCandidate, getAudition } from "../redux/actions/auditionActions.js"
 import { Button } from "react-bootstrap"
 
 class CandidateForm extends React.Component {
@@ -14,7 +14,10 @@ class CandidateForm extends React.Component {
     handleSubmit = (e) => {
         e.preventDefault()
         this.props.createNewCandidate(this.state)
-        // this.props.hideForm()
+        this.setState({
+            name: "",
+            email: "", 
+            phone: ""})
     }
 
     handleChange = (e) => {
@@ -27,11 +30,11 @@ class CandidateForm extends React.Component {
         return(
             <div>
                 <form onSubmit={this.handleSubmit}>
-                    <input type="text" name="name" placeholder="Name" onChange={this.handleChange}/>
+                    <input type="text" name="name" value={this.state.name} placeholder="Name" onChange={this.handleChange}/>
                     <br/>
-                    <input type="text" name="email" placeholder="Email" onChange={this.handleChange}/>
+                    <input type="text" name="email" value={this.state.email} placeholder="Email" onChange={this.handleChange}/>
                     <br/>
-                    <input type="text" name="phone" placeholder="Phone" onChange={this.handleChange}/>
+                    <input type="text" name="phone" value={this.state.phone} placeholder="Phone" onChange={this.handleChange}/>
                     <br/>
                     <br/>
                     <Button variant="success" size="sm" type="submit">Add</Button>
@@ -46,4 +49,4 @@ const mapStateToProps = state => {
         audition: state.audition.id
     }
 }
-export default connect(mapStateToProps, { createNewCandidate})(CandidateForm)
+export default connect(mapStateToProps, { createNewCandidate, getAudition })(CandidateForm)

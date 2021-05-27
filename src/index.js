@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux' 
 import { BrowserRouter as Router } from "react-router-dom";
 import store from './redux/store.js'
-import { Container, Row } from 'react-bootstrap'
+import { Container } from 'react-bootstrap'
 
 import App from './App';
 
@@ -12,9 +12,7 @@ ReactDOM.render(
   <Provider store={store}>
     <Router>
       <Container>
-        <Row>
-          <App />
-        </Row>
+        <App />
       </Container>
     </Router>
   </Provider>,

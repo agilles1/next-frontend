@@ -1,7 +1,15 @@
+
+
 export const getAudition = (auditionId) => {
     return(dispatch) => {
         fetch(`http://localhost:3000/api/v1/auditions/${auditionId}`)
-        .then(res => res.json())
+        .then((res) => {
+          if (res.ok) {
+          return res.json();
+          } else {
+          throw new Error(res.statusText);
+          }
+      })
         .then(data =>  dispatch({ type: "GET_AUDITION_SUCCESS", payload: data}))
     }
 }

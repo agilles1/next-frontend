@@ -7,7 +7,7 @@ const auditionReducer = (state = [], action) => {
         case "GET_AUDITION_SUCCESS":
             return action.payload;
         case "CREATE_CANDIDATE_SUCCESS":
-            return {...state, candidates: state.candidates.concat(action.payload)};
+            return action.payload
         case "UPDATE_CANDIDATE_SUCCESS":
             return action.payload;
         default:
@@ -16,3 +16,5 @@ const auditionReducer = (state = [], action) => {
 }
 
 export default auditionReducer
+
+// {...state, candidates: state.candidates.concat(action.payload)}

@@ -13,7 +13,6 @@ class AuditionForm extends React.Component {
 
     handleSubmit = (e) => {
         e.preventDefault();
-        debugger
         this.props.createAudition(this.state, this.props.history)
     }
 

@@ -12,7 +12,7 @@ class Auditions extends React.Component {
 
     render(){
         
-        let auditionCards = this.props.auditions.map(audition => <AuditionCard audition={audition}/>)
+        let auditionCards = this.props.auditions.map(audition => <AuditionCard key={audition.id} audition={audition}/>)
 
         return(
             <div>

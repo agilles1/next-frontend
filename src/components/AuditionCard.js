@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 
 function AuditionCard({ audition }){
     return (
-        <Link key={audition.id} to={`/auditions/${audition.id}`}>
+        <Link to={`/auditions/${audition.id}`}>
             <Card  bg={"success"} text={"light"}>
                 <Card.Header>{Moment(audition.date).format('MMMM DD, YYYY | h:mma')}</Card.Header>
                 <Card.Body>

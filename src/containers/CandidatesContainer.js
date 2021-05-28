@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import CandidateForm from '../components/CandidateForm.js'
 import Candidate from '../components/Candidate.js'
-import { getCandidates } from '../redux/actions/candidateActions.js'
+
 import { Button, OverlayTrigger, Popover } from "react-bootstrap"
 
 
@@ -54,4 +54,4 @@ const mapStateToProps = (state) => {
     }
 };
 
-export default connect(mapStateToProps, { getCandidates })(CandidatesContainer)
+export default connect(mapStateToProps)(CandidatesContainer)

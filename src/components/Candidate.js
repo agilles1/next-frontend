@@ -1,20 +1,37 @@
-import React from 'react'
-import { Card } from 'react-bootstrap'
+import React, { useState } from 'react'
+import { Card, Button } from 'react-bootstrap'
 
-class Candidate extends React.Component{
+function Candidate( { candidate }) {
 
-    render(){
-        let candidate = this.props.candidate 
+    const [count, setCount] = useState(0)
+
+
+      
         let room = null
 
        !!candidate.room? room = candidate.room.name : room = "Completed"
 
         return(
             <Card>
-                <Card.Body>{candidate.number} | {candidate.name} | {room} </Card.Body>
+                <Card.Body>{candidate.number} | {candidate.name} | {room} | <Button onClick={() => setCount(count + 1)}>+ {count}</Button></Card.Body>
             </Card>
         )
-    }
 }
 
 export default Candidate
+
+// import React, { useState } from 'react';
+
+// function Example() {
+//   // Declare a new state variable, which we'll call "count"
+//   const [count, setCount] = useState(0);
+
+//   return (
+//     <div>
+//       <p>You clicked {count} times</p>
+//       <button onClick={() => setCount(count + 1)}>
+//         Click me
+//       </button>
+//     </div>
+//   );
+// }

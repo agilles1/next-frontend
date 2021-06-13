@@ -9,7 +9,7 @@ Built with React/Redux
 </div>
 <br/>
 <p align="center">
-  <img max-height: 90% width="100%" src="https://giphy.com/embed/oVmFXTDUy3a6tmoa5F" alt="gif of the app">
+  <img max-height: 90% width="100%" src="https://media.giphy.com/media/oVmFXTDUy3a6tmoa5F/giphy.gif" alt="gif of the app">
 </p>
 
 ## Features 

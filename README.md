@@ -1,7 +1,3 @@
-This application allows you to create auditions and manage the checking in of candidates and the tracking of their pressence throughout the audition process. 
-
-Built with React/Redux
-
 <h1 align="center">Next</h1>
 
 <div align="center">

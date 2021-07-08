@@ -1,15 +1,24 @@
 import React from 'react'
-import { Card } from 'react-bootstrap'
+import { Card, Button } from 'react-bootstrap'
 import { connect } from 'react-redux'
 import DirectionsWalkIcon from '@material-ui/icons/DirectionsWalk';
 import HourglassEmptyIcon from '@material-ui/icons/HourglassEmpty';
 import { updateCandidate } from '../redux/actions/auditionActions.js'
 
 class Room extends React.Component {
+    state={
+        counter: 0
+    }
 
     handleClick = (e, candidate) => {
         if(candidate){
         this.props.updateCandidate(candidate)}
+    }
+
+    handleVote = (e) => {
+        this.setState(
+            prevState => ({counter: prevState.counter + 1})
+        )
     }
 
     render(){
@@ -35,6 +44,7 @@ class Room extends React.Component {
                 <Card.Text>
                 {currentCandidate}
                 </Card.Text>
+                
             </Card.Body>
         </Card>
         );
@@ -49,3 +59,4 @@ class Room extends React.Component {
   }
 
   export default connect(mapStateToProps, { updateCandidate })(Room)
+{/* <Button onClick={this.handleVote}>+ {this.state.counter}</Button> */}

@@ -18,3 +18,4 @@ const auditionReducer = (state = [], action) => {
 export default auditionReducer
 
 // {...state, candidates: state.candidates.concat(action.payload)}
+// Checkout Redux docs. Style guide. https://redux.js.org/style-guide/style-guide

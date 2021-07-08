@@ -30,7 +30,6 @@ class RoomsContainer extends React.Component {
 const mapStateToProps = (state) => {
     return {
         audition: state.audition, 
-         
         candidates: state.audition.candidates
     }
 };

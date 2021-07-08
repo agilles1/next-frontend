@@ -13,13 +13,14 @@ function Candidate( { candidate }) {
 
         return(
             <Card>
-                <Card.Body>{candidate.number} | {candidate.name} | {room} | <Button onClick={() => setCount(count + 1)}>+ {count}</Button></Card.Body>
+                <Card.Body>{candidate.number} | {candidate.name} | {room} | </Card.Body>
             </Card>
         )
 }
 
 export default Candidate
 
+{/* <Button onClick={() => setCount(count + 1)}>+ {count}</Button> */}
 // import React, { useState } from 'react';
 
 // function Example() {
